@@ -1,0 +1,270 @@
+﻿ставь в Form    свойства    flowLayoutPanel :
+
+Anchor     |    Top, Bottom, Left, Right
+AutoSize |    True
+Dock         |    None
+
+в свойствах  Label ставь:
+Anchor	|    Top, Left, Right
+AutoSize   |    True
+Margin
+Right	|     0
+
+https://gist.github.com/peterdemin/920ec3eaaa0a9f3cafd3a855557f5e0c
+
+*			*				*
+https://www.greenbacktaxservices.com/country-guide/expat-taxes-for-saudi-arabia/
+	- 10 способов сэкономить БОЛЬШУЮ сумму на налогах, будучи цифровым кочевником.
+
+	https://www.globalvatcompliance.com/globalvatnews/vat-rates-in-europe-2021/
+		-global VAT
+
+https://stackoverflow.com/questions/17599358/display-the-selected-row-from-listview-to-textbox
+
+https://cleartax.in/s/discount-formula
+https://www.cuemath.com/commercial-math/calculating-discounts/ 
+https://math.libretexts.org/Bookshelves/Applied_Mathematics/Business_Math_(Olivier)/06%3A_Marketing_Applications_(What_Is_It_Going_to_Cost_Me)/6.01%3A_Figuring_Out_the_Cost_-_Discounts__(How_Much)
+
+https://calculatethevat.com/
+https://stripe.com/resources/more/how-to-calculate-vat-france
+https://vat-calculator.net/israel.html
+https://corporatefinanceinstitute.com/resources/accounting/value-added-tax-vat/
+https://www.gov.uk/vat-retail-schemes/direct-calculation-scheme
+
+https://taxfoundation.org/data/all/state/2024-sales-taxes/
+https://taxfoundation.org/
+https://stickymangorice.com/2023/06/02/a-to-z-of-american-food/
+https://taxhero.net/sales-tax/state/
+https://taxhero.net/sales-tax/state/alabama/
+
+https://eatingatoz.com/food-list/
+https://www.thefoodcoach.com.au/food/?Alpha=%5BA-Z%5D
+https://state.1keydata.com/
+
+https://www.globalfoodresearchprogram.org/wp-content/uploads/2024/10/GFRP-UNC_Tax_maps_foods_2024-Oct.pdf
+ - taxes on foods high 
+
+https://www.who.int/ru/news-room/fact-sheets/detail/healthy-diet
+	- ВОЗ
+https://pubmed.ncbi.nlm.nih.gov/10805507/
+the balanced diet
+
+https://stackoverflow.com/questions/16553768/c-sharp-checking-if-button-was-clicked
+	- if button was clicked
+
+https://learn.microsoft.com/en-us/dotnet/api/system.stringcomparer.ordinalignorecase?view=net-8.0
+	- ignore Caps letter
+https://www.cyberforum.ru/windows-forms/thread1465521.html
+
+https://learn.microsoft.com/ru-ru/dotnet/framework/migration-guide/how-to-configure-an-app-to-support-net-framework-4-or-4-5
+	- настройка приложения для поддержки .NET Framework 4 или более поздних версий
+
+Масштабирование приложения Windows Form под разные мониторы:
+Cвойства Windows Form адаптироваться под разные экраны у Form1 нет.
+Ставь для формы (Form1 и др) свойство AutoSize в False и AutoSizeMode в GrowOnly !
+«Резиновый» интерфейс делается с помощью контейнеров компоновки: Panel, GroupBox, FlowLayoutPanel, TableLayoutPanel и 
+с помощью свойств Anchor и Dock.
+Можно и без отдельной панели, всё зависит от расположения контролов.
+
+Свойство Anchor у контролов.
+Используй Anchor свойство, чтобы определить, как автоматически изменяется размер элемента управления при изменении 
+размера его родительского элемента управления. Привязка элемента управления к его родительскому элементу управления 
+гарантирует, что привязанные границы остаются в той же области, что и границы родительского элемента управления, 
+когда изменяется размер родительского элемента управления.
+
+Можно привязать элемент управления к одному или нескольким границам контейнера. Например, если имеется объект Form 
+с Button Anchor свойством, для которого задано значение Top и Bottom , то объект Button растягивается для поддержания 
+привязанного расстояния к верхнему и нижнему краям, Form как и в Height Form случае увеличения.
+
+// pictureBox1
+// 
+this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+| System.Windows.Forms.AnchorStyles.Left) 
+| System.Windows.Forms.AnchorStyles.Right)));
+// 
+// button1
+// 
+this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+| System.Windows.Forms.AnchorStyles.Right)));
+
+поищи инфо об адаптивных контейнерах разметки, например System.Windows.Forms.TableLayoutPanel.
+почитай про Binding. Плюс завязыватся на экран не совсем верно -- окно можно открыть и на пол-экрана слева/справа.
+
+Seven states: Alabama, Hawaii, Idaho, Kansas, Mississippi, Oklahoma, and South Dakota, 
+levy standard sales tax on grocery food. Six states: 
+Arkansas, Illinois, Missouri, Tennessee, Utah, and Virginia, levy reduced sales tax rates.
+7 штатов: Алабама, Гавайи, Айдахо, Канзас, Миссисипи, Оклахома и Южная Дакота взимают стандартный налог 
+с продаж на продукты. 6 штатов: Арканзас, Иллинойс, Миссуoри, Теннесси, Юта и Вирджиния взимают сниженные 
+ставки налога с продаж.
+
+Of seven states that levy ordinary sales tax rates on groceries, four states: 
+Hawaii, Idaho, Kansas, and Oklahoma, offer credit to low-income households.
+Из семи штатов, которые взимают обычные ставки налога с продаж на продукты питания, 4 штата: 
+Гавайи, Айдахо, Канзас и Оклахома предлагают кредиты домохозяйствам с низкими доходами.
+
+Only food prepared for off-premises consumption is tax-exempt. 
+От налога освобождается только еда, приготовленная для потребления за пределами предприятия.
+
+Arizona, Colorado, Georgia, Louisiana, North Carolina, and South Carolina exempt groceries 
+from state-level sales tax but impose local sales tax on various food items.
+Аризона, Колорадо, Джорджия, Луизиана, Северная Каролина и Южная Каролина освобождают 
+продукты от налога с продаж на уровне штата, но взимают местный налог с продаж на различные продукты питания.
+
+Sales tax calculation is essential to financial transactions, whether you’re running a business or 
+making personal purchases. Understanding how to calculate sales tax accurately is crucial to ensure proper 
+budgeting and compliance with tax regulations. By utilizing a sales tax calculator and formula, individuals 
+and businesses can swiftly determine the correct amount of sales tax to be paid, enabling them to make informed 
+financial decisions and avoid any potential errors.
+Расчет налога с продаж важен для финансовых операций, независимо от того, ведете ли вы бизнес или совершаете 
+личные покупки. Понимание того, как точно рассчитать налог с продаж, имеет решающее значение для обеспечения 
+правильного составления бюджета и соблюдения налогового законодательства. Используя калькулятор и формулу налога 
+с продаж, частные лица и предприятия могут быстро определить правильную сумму налога с продаж, подлежащую уплате, 
+что позволяет им принимать обоснованные финансовые решения и избегать любых потенциальных ошибок.
+
+Sales Tax Amount = Price of item * [State sales tax rate in decimals + Local sales tax rate in decimals]
+
+
+
+
+
+Combining foods rich in vitamin C (such as citrus fruits and bell peppers) with plant-based sources of iron 
+(such as spinach, beans, and fortified cereals) is an excellent choice.
+
+Studies show that carotenoid-rich diets may reduce the risk of some health conditions such as certain cancers, 
+heart disease, and vision problems (22Trusted Source).
+
+Your best bet is to pair carotenoid-containing vegetables with heart-healthy fats, like nuts, seeds, olive oil, 
+or avocados (24Trusted Source).
+
+Try adding some cheese or olive oil to your salad or topping your steamed broccoli with a little bit of butter.
+
+Carrots and fat
+Certain nutrients, such as fat-soluble vitamins and carotenoids, need fat in order to be absorbed by the body.
+
+Carotenoids are compounds found in red, orange, and dark green vegetables, including carrots, tomatoes, 
+red bell peppers, spinach, and broccoli (21Trusted Source).
+
+
+Swapping out high calorie or sweetened beverages for lemon water may promote weight loss. 
+Drinking more water, with or without lemon, may have other weight loss benefits.
+Lemon water is a beverage made from water mixed with fresh lemon juice. It can be enjoyed either hot or cold.
+This type of water has health benefits, including improving digestion, enhancing focus and increasing energy levels.
+It’s also said to help promote weight loss and is a popular part of many diets.
+
+Lemon water is generally a very low-calorie beverage. 
+Lemon water is low enough in calories that it could produce a similar effect and help decrease calorie intake.
+Assuming you squeeze the juice from half a lemon into water, 
+each glass of lemon water will contain just six calories (1).
+One cup of orange juice (237 ml) contains 110 calories, and a 16-ounce (0.49-liter) bottle of soda contains 182 calories.
+Replacing even just one of these beverages per day with a glass of lemon water could reduce daily calorie intake by 100–200 calories.
+Drinking low-calorie beverages with meals could decrease the number of overall calories consumed in the meal.
+
+
+
+Spinach and dairy products
+
+Foods such as spinach, chocolate, and tea contain oxalate, an antinutrient that can bind with calcium to form 
+an insoluble compound (25Trusted Source).
+This can be good or bad for you, depending on the circumstances.
+
+For people who are prone to certain types of kidney stones, consuming calcium sources such as dairy products 
+with oxalate-containing foods can actually decrease the risk of developing kidney stones (26Trusted Source).
+
+On the other hand, combining oxalates and calcium decreases the absorption of calcium. For most people, 
+this is no problem in the context of a balanced diet (27Trusted Source).
+
+However, for people who don’t eat much calcium in the first place or who eat a diet very high in oxalates, 
+this interaction might cause a problem.
+
+Avoid combining dairy products and other calcium-rich foods with foods that are high in oxalates.
+Foods that are high in oxalates include spinach, nuts, chocolate, tea, beets, rhubarb, and strawberries, 
+among others (25Trusted Source).
+
+The principles of most food-combining diets are not evidence-based. 
+However, a few food combinations have been scientifically shown to affect the digestion and absorption of nutrients.
+
+Most of the principles of food combining are not based on science, and there is no evidence to support 
+the idea that improper food combining contributes to disease or toxins in the body.
+However, it is fine to incorporate the principles of food combining into a healthy, well-rounded diet if you find that it works for you.
+
+Food combining is a concept based on the idea that certain foods pair well, while others do not.
+In fact, there is no evidence to support most of the principles of food combining.
+The food-combining diet offered no benefit over the balanced diet.
+Tthe body is equipped to digest mixed meals. The human body evolved on a diet of whole foods, 
+which almost always contain some combination of carbs, protein, and fat.
+The term “mixed meals” refers to meals that contain a combination of fat, carbs, and protein.
+The rules of food combining are largely based on the idea that the body is not equipped to digest mixed meals.
+However, this is not the case.
+
+Vegetables and grains are typically considered carb-containing foods, but they all also contain several grams of 
+protein per serving. Additionally, although meat is considered a protein food, even lean meat contains some fat 
+(3Trusted Source, 4Trusted Source).
+The human body evolved on a diet of whole foods, which almost always contain some combination of carbs, protein, 
+and fat.
+Because many foods contain a combination of carbs, fat, and protein, your digestive tract is always prepared to 
+digest a mixed meal.
+There’s no need to worry that your body will have to choose between digesting protein and fat or starches and proteins. 
+In fact, it’s specifically prepared for this type of multitasking.
+
+Basic biochemistry and nutritional science directly contradicts most of the principles of food combining.
+
+There is no evidence that the practice of food combining offers any benefits. 
+In fact, modern science directly contradicts many of its principles.
+
+
+It Can Keep You Hydrated
+
+Drinking enough water to stay hydrated is a critical component of health.
+Drinking lemon water could help you stay hydrated, which reduces water retention and may increase fat loss.
+Recipes usually call for the juice from at least half a lemon mixed with a glass of water.
+A few fresh mint leaves or a sprinkle of turmeric are delicious and healthy ways to spice up a glass of lemon water.
+It can also be consumed hot, like tea, or with a few ice cubes added for a cool and invigorating drink.
+
+The most common rules are: Eat fruit only on an empty stomach, especially melons.
+Avoid combining starches and proteins.
+Avoid combining starches with acidic foods.
+Avoid combining different types of protein.
+Consume dairy products only on an empty stomach, especially milk.
+Other rules say that protein should not be mixed with fat, sugar should only be eaten alone, 
+and fruits and vegetables should be eaten separately.
+
+Food combining is a way of eating in which certain types of foods are not eaten together. 
+Proponents of food-combining diets believe improper combinations lead to disease and digestive distress.
+
+The scientists caution against becoming too fixated on any ‘diet rules’ at the risk of ruining our relationships with food. 
+Food is about enjoyment too!
+
+
+The one area food pairing is a good idea… 100% plant-based diets.
+If you’re following a vegan diet, there are certain nutrients that can be a little trickier to get.
+Try using a tomato base, rich in vitamin C, when cooking with lentils, 
+or having some strawberries with a handful of nuts and seeds.
+
+
+Food-combining diets.
+
+Food pairing
+
+The balanced diet:
+------------------
+Current recommendations suggest that a person’s plate should contain primarily vegetables and fruits, 
+some lean protein, some dairy, and soluble fiber.
+Современные рекомендации предполагают, что тарелка человека должна содержать в основном овощи и фрукты, 
+немного нежирного белка, немного молочных продуктов и растворимую клетчатку.
+Здоровая диета может помочь сохранить когнитивные способности и здоровье мозга. Исследование 2015 года:
+витамин D, C и E
+омега-3 жирные кислоты
+флавоноиды и полифенолы
+рыба
+Среди других диет средиземноморская диета включает в себя многие из этих питательных веществ.
+
+
+
+"You did not enter value in the 'Amount of food' text boxes.\n\nTherefore, displaying food purchasing options is not possible."
+
+https://learn.microsoft.com/en-us/dotnet/api/system.windows.forms.listview.drawcolumnheader?view=windowsdesktop-9.0
+	- ListView.DrawColumnHeader Event
+	
+
+
+

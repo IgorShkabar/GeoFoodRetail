@@ -1,0 +1,535 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6F54CFCC-269E-4CC9-ACC8-782A37283B0B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>GeoFoodRetail</RootNamespace>
+    <AssemblyName>GeoFoodRetail</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.3</LangVersion>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.3</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>IconForm.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemGroup>
+    <Compile Include="GIS\AddManyObjects\Add50KPointsToMap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GIS\AddManyObjects\Add50KPointsToMap.Designer.cs">
+      <DependentUpon>Add50KPointsToMap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GIS\AddManyObjects\MapPointItem.cs" />
+    <Compile Include="Controls\MapPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="EnterpriseForm\RetailChains.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EnterpriseForm\RetailChains.Designer.cs">
+      <DependentUpon>RetailChains.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EnterpriseForm\RetailChainsData.cs" />
+    <Compile Include="EnterpriseForm\RetailForm.Data.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FoodOptions\FoodOptionsForm.Logic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GIS\Abstractions\ISpatialIndexGeneric.cs" />
+    <Compile Include="GIS\Constants\EarthConst.cs" />
+    <Compile Include="GIS\Domain\Layers\DataLoader.cs" />
+    <Compile Include="GIS\Domain\Models\DetailLevel.cs" />
+    <Compile Include="GIS\Domain\Models\GeoDetermination.cs" />
+    <Compile Include="GIS\Math3D\BoundingBox.cs" />
+    <Compile Include="GIS\Math3D\ClusterNode.cs" />
+    <Compile Include="GIS\Math3D\ClusterService.cs" />
+    <Compile Include="GIS\Math3D\DistanceCalculator.cs" />
+    <Compile Include="GIS\Math3D\GeometryCalc.cs" />
+    <Compile Include="GIS\Projections\MapViewport.cs" />
+    <Compile Include="GIS\StreamingRTree\MatchedStores.cs" />
+    <Compile Include="GIS\StreamingRTree\SpatialIndexManager.ScndPart.cs" />
+    <Compile Include="GIS\StreamingRTree\SpatialIndexManager.Wrapper.cs" />
+    <Compile Include="GIS\StreamingRTree\SpatialNodeGeneric.cs" />
+    <Compile Include="GIS\StreamingRTree\VisualisationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GIS\StreamingRTree\VisualisationForm.Designer.cs">
+      <DependentUpon>VisualisationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GIS\UI\CacheManager.cs" />
+    <Compile Include="GIS\DeliveryZoneForm.Data.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GIS\UI\Gis3DGlobeControl.Distance.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GIS\UI\Gis3DGlobeControl.OnPaint.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GIS\UI\GisMapScheme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GIS\UI\GisMapScheme.Designer.cs">
+      <DependentUpon>GisMapScheme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GIS\UI\GisMapScheme.Drawing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GIS\UI\GisMapScheme.Events.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GIS\UI\GisMapScheme.Init.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GIS\UI\MapState.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Logging\RecordLog.cs" />
+    <Compile Include="MainDashboard\MainForm.EditCell.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainDashboard\MainForm.Events.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainDashboard\MainForm.EventsContinuation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainDashboard\MainForm.Logic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainDashboard\MainForm.MealData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainDashboard\MainForm.Undo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainDashboard\NewOpenSafeCloseExit.cs" />
+    <Compile Include="MainDashboard\RtfReadRichText.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainDashboard\RtfReadRichText.Designer.cs">
+      <DependentUpon>RtfReadRichText.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainDashboard\StoresLocations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainDashboard\StoresLocations.Designer.cs">
+      <DependentUpon>StoresLocations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UtilitarMethod\Methods.cs" />
+    <Compile Include="Utils\FoodParserUtility.cs" />
+    <None Include="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <Compile Include="GIS\UI\GisMapScheme.UI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <None Include="Oracle.DataAccess.Common.Configuration.Section.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Oracle.ManagedDataAccess.Client.Configuration.Section.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="taxes.json" />
+    <None Include="us-states.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="GMap.NET.Core, Version=2.1.7.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
+      <HintPath>..\packages\GMap.NET.Core.2.1.7\lib\net472\GMap.NET.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="GMap.NET.WindowsForms, Version=2.1.7.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
+      <HintPath>..\packages\GMap.NET.WinForms.2.1.7\lib\net472\GMap.NET.WindowsForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=11.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.11.0.0-preview.7.26381.103\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=10.0.0.12, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.10.0.12\lib\net462\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite, Version=2.0.0.0, Culture=neutral, PublicKeyToken=f580a05016ebada1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NetTopologySuite.2.6.0\lib\netstandard2.0\NetTopologySuite.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.122.23.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.23.26.301\lib\net472\Oracle.ManagedDataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.6.1\lib\net462\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=10.0.0.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.10.0.3\lib\net462\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlClient, Version=4.6.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SqlClient.4.8.3\lib\net461\System.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite, Version=1.0.115.5, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.115.5\lib\net46\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.115.5, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.115.5\lib\net46\System.Data.SQLite.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.115.5, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.115.5\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Device" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=6.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.6.0.2\lib\net461\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Formats.Asn1, Version=8.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Formats.Asn1.8.0.1\lib\net462\System.Formats.Asn1.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Pipelines, Version=11.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Pipelines.11.0.0-preview.7.26381.103\lib\net462\System.IO.Pipelines.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.6.3\lib\net462\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.6.1\lib\net462\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.1.2\lib\net462\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Principal.Windows.5.0.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Text.Encodings.Web, Version=11.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.11.0.0-preview.7.26381.103\lib\net462\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.11.0.0-preview.7.26381.103\lib\net462\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.4.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.6.3\lib\net462\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <None Update="taxes.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CheckVersion.cs" />
+    <Compile Include="EnterpriseForm\RetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EnterpriseForm\RetailForm.Designer.cs">
+      <DependentUpon>RetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FoodOptions\CompatibleFood.cs" />
+    <Compile Include="Files.cs" />
+    <Compile Include="FoodOptions\FoodOptionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FoodOptions\FoodOptionsForm.Designer.cs">
+      <DependentUpon>FoodOptionsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FoodOptions\Hashes.cs" />
+    <Compile Include="GIS\Abstractions\IGisProjection.cs" />
+    <Compile Include="GIS\Abstractions\ISpatialIndex.cs" />
+    <Compile Include="GIS\Abstractions\ITileProvider.cs" />
+    <Compile Include="GIS\DeliveryZoneForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GIS\DeliveryZoneForm.Designer.cs">
+      <DependentUpon>DeliveryZoneForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GIS\DeliveryZoneForm.Drawing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GIS\DeliveryZoneForm.Events.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GIS\DeliveryZoneForm.Geocoding.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GIS\DeliveryZoneForm.Geometry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GIS\DeliveryZoneForm.InitData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GIS\DeliveryZoneForm.UI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GIS\Domain\AreaSpatialAnalyzer.cs" />
+    <Compile Include="GIS\Domain\Layers\VectorLayer.cs" />
+    <Compile Include="GIS\Domain\Models\GeoAddress.cs" />
+    <Compile Include="GIS\Domain\Models\GeoCoordinate3D.cs" />
+    <Compile Include="GIS\Domain\Models\MapMarker.cs" />
+    <Compile Include="GIS\Domain\Models\MarkerCluster.cs" />
+    <Compile Include="GIS\Domain\Models\RetailMarkerCluster.cs" />
+    <Compile Include="GIS\Domain\Models\RetailStoreMarker.cs" />
+    <Compile Include="GIS\Domain\Models\StoreCluster.cs" />
+    <Compile Include="GIS\Domain\Models\StoreData.cs" />
+    <Compile Include="GIS\Domain\UsaGeocodingApi.cs" />
+    <Compile Include="GIS\Domain\UsaGraphicsMap.cs" />
+    <Compile Include="GIS\GlobeLogger.cs" />
+    <Compile Include="GIS\InitStoreUpdate.cs" />
+    <Compile Include="GIS\Math3D\Point3D.cs" />
+    <Compile Include="GIS\Projections\MercatorProjection.cs" />
+    <Compile Include="GIS\Projections\SphericalProjection.cs" />
+    <Compile Include="GIS\StreamingRTree\RTreePage.cs" />
+    <Compile Include="GIS\StreamingRTree\SimdAABB.cs" />
+    <Compile Include="GIS\StreamingRTree\SpatialClusterEngine.cs" />
+    <Compile Include="GIS\StreamingRTree\SpatialIndexManager.cs" />
+    <Compile Include="GIS\StreamingRTree\SpatialNode.cs" />
+    <Compile Include="GIS\StreamingRTree\SpatialStreamCursor.cs" />
+    <Compile Include="GIS\StreamingRTree\DemoPlatform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GIS\StreamingRTree\DemoPlatform.Designer.cs">
+      <DependentUpon>DemoPlatform.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GIS\TileProviders\OsmTileProvider.cs" />
+    <Compile Include="GIS\UI\Gis3DGlobeControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GIS\UI\GisMapControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GIS\UI\GisMapControl.Designer.cs">
+      <DependentUpon>GisMapControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GIS\UI\MapRenderer.cs" />
+    <Compile Include="GIS\UI\StoreItem.cs" />
+    <Compile Include="MainDashboard\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainDashboard\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HelpFeature\HelpFeatureForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HelpFeature\HelpFeatureForm.Designer.cs">
+      <DependentUpon>HelpFeatureForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="About\AboutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="About\AboutForm.Designer.cs">
+      <DependentUpon>AboutForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainDashboard\IDisposable.cs" />
+    <Compile Include="MainDashboard\Money.cs" />
+    <Compile Include="MainDashboard\Payment.cs" />
+    <Compile Include="MainDashboard\TaxService.cs" />
+    <Compile Include="OSparts\OsPartsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OSparts\OsPartsForm.Designer.cs">
+      <DependentUpon>OsPartsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Position.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GIS\AddManyObjects\Add50KPointsToMap.resx">
+      <DependentUpon>Add50KPointsToMap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EnterpriseForm\RetailChains.resx">
+      <DependentUpon>RetailChains.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EnterpriseForm\RetailForm.resx">
+      <DependentUpon>RetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FoodOptions\FoodOptionsForm.resx">
+      <DependentUpon>FoodOptionsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GIS\DeliveryZoneForm.resx">
+      <DependentUpon>DeliveryZoneForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GIS\StreamingRTree\DemoPlatform.resx">
+      <DependentUpon>DemoPlatform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GIS\StreamingRTree\VisualisationForm.resx">
+      <DependentUpon>VisualisationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GIS\UI\GisMapScheme.resx">
+      <DependentUpon>GisMapScheme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainDashboard\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HelpFeature\HelpFeatureForm.resx">
+      <DependentUpon>HelpFeatureForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="About\AboutForm.resx">
+      <DependentUpon>AboutForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainDashboard\RtfReadRichText.resx">
+      <DependentUpon>RtfReadRichText.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainDashboard\StoresLocations.resx">
+      <DependentUpon>StoresLocations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OSparts\OsPartsForm.resx">
+      <DependentUpon>OsPartsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="IconForm.ico" />
+    <Content Include="info.txt" />
+    <Content Include="Resources\earth_map.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\menu.png" />
+    <Content Include="Resources\usa.png" />
+    <None Include="Resources\NewIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.12" />
+    <PackageReference Include="Microsoft.Office.Excel">
+      <Version>14.0.4760.1000</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Office.Interop.Word">
+      <Version>15.0.4797.1004</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Web.WebView2.DevToolsProtocolExtension">
+      <Version>1.0.2901</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Windows.SDK.Contracts">
+      <Version>10.0.28000.2705</Version>
+    </PackageReference>
+    <PackageReference Include="Wodsoft.Extensions.Configuration.Json">
+      <Version>1.1.2</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DatabaseServiceLib\DatabaseServiceLib.csproj">
+      <Project>{75dbbf2f-c6e4-46d1-a6c6-85327bb42b66}</Project>
+      <Name>DatabaseServiceLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\System.ValueTuple.4.6.2\build\net471\System.ValueTuple.targets" Condition="Exists('..\packages\System.ValueTuple.4.6.2\build\net471\System.ValueTuple.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\System.ValueTuple.4.6.2\build\net471\System.ValueTuple.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.ValueTuple.4.6.2\build\net471\System.ValueTuple.targets'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.115.5\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.115.5\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <Import Project="..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.115.5\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.115.5\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+</Project>
