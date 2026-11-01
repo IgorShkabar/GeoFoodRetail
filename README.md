@@ -15,6 +15,7 @@ It consists of 3 projects:
 • WinForms App — Presentation layer / UI.
 • Test Project — Unit and integration tests.
 ### 📂 Structure and Folder Architecture (for the GeoFoodRetail WinForms Project)
+```markdown
 <details>
   <summary>Click to expand the project file tree</summary>
 ```text
@@ -66,3 +67,4 @@ GeoFoodRetail/
 └── Utils/                             
 ```
 </details>
+```
