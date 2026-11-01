@@ -17,52 +17,52 @@ It consists of 3 projects:
 ### 📂 Structure and Folder Architecture (for the GeoFoodRetail WinForms Project)
 <details>
   <summary>Click to expand the project file tree</summary>
-  ```text
+```text
 GeoFoodRetail/
-├── GIS/                               # Core GIS module (calculations, maps, layers)
-│   ├── Abstractions/                  # Interfaces and architectural contracts
-│   │   ├── IGisProjection.cs          # Lat/Lon <-> Pixel Conversion
-│   │   ├── ITileProvider.cs           # Map tile retrieval contract
-│   │   └── ISpatialIndex.cs           # Spatial search contract for objects
-│   ├── AddManyObjects/                # Example of adding a huge number of points to a map
-│   │   ├── Add50KPointsToMap.cs       # Logic for generating 50k points
-│   │   └── MapPointItem.cs            # Auxiliary model (a point with X (longitude) and Y (latitude))
-│   ├── Domain/                        # Data models and domain logic
-│   │   ├── Models/                    # Entities and data types
-│   │   │   ├── GeoCoordinate.cs       # Coordinate structure (Lat, Lon)
+├── GIS/                               
+│   ├── Abstractions/                  
+│   │   ├── IGisProjection.cs          
+│   │   ├── ITileProvider.cs           
+│   │   └── ISpatialIndex.cs           
+│   ├── AddManyObjects/                
+│   │   ├── Add50KPointsToMap.cs       
+│   │   └── MapPointItem.cs            
+│   ├── Domain/                        
+│   │   ├── Models/                    
+│   │   │   ├── GeoCoordinate.cs       
 │   │   │   ├── MapMarker.cs           
 │   │   │   ├── RetailStoreMarker.cs   
-│   │   │   └── StoreType.cs           # Enum: Retail, Grocery, Supermarket
+│   │   │   └── StoreType.cs           
 │   │   └── Layers/                    
-│   │       ├── DataLoader.cs          # data loader class
+│   │       ├── DataLoader.cs          
 │   │       └── VectorLayer.cs         
-│   ├── Math3D/                        # Mathematics for 3D projections
-│   ├── Projections/                   # Geodetic projections
-│   │   └── WebMercatorProjection.cs   # Implementing the Web Mercator projection (EPSG:3857)
-│   ├── TileProviders/                 # Инфраструктура загрузки и кэширования карт
+│   ├── Math3D/                       
+│   ├── Projections/                   
+│   │   └── WebMercatorProjection.cs   
+│   ├── TileProviders/                 
 │   │   └── OsmTileProvider.cs         
 │   │   
-│   ├── StreamingRTree/                # Spatial indexing 
-│   │   ├── RTreeNode.cs               # R-tree node / Grid Index cell
-│   │   ├── BoundingBox.cs             # AABB (Axis-Aligned Bounding Box)
-│   │   └── RTreeSpatialIndex.cs       # Quick search for objects within the field of view O(log N)
+│   ├── StreamingRTree/                
+│   │   ├── RTreeNode.cs               
+│   │   ├── BoundingBox.cs             
+│   │   └── RTreeSpatialIndex.cs       
 │   └── UI/                            
 │       └── GisMapControl.cs           
 │
-├── MainDashboard/                     # Main application interface
-│   ├── MainForm.cs                    # Main WinForms Form 
+├── MainDashboard/                     
+│   ├── MainForm.cs                    
 │   └── MainForm.Designer.cs           
 │
-├── FoodOptions/                       # Business module: Food, payment, change
-|   ├── CompatibleFood.cs              # Lists of food, tuple 
-│   └── Hashes.cs                      # lookup collections (`HashSet<string>`)
+├── FoodOptions/                       
+|   ├── CompatibleFood.cs              
+│   └── Hashes.cs                      
 │
-├── About/                             # "About program"
-├── HelpFeature/                       # HelpFeatureForm class with sizes
-├── Logging/                           # A minimal concept for logging errors
-├── OSparts/                           # Check up versions: OS, .NET, .NETFramework 
-├── Resources/                         # Static resources (icons, .jpg, .png - files, etc.)
-├── UtilitarMethod/                    # Math.Clamp micro-function
-└── Utils/                             # Parses the OpenFoodFacts gzip archive
+├── About/                             
+├── HelpFeature/                       
+├── Logging/                           
+├── OSparts/                           
+├── Resources/                         
+├── UtilitarMethod/                    
+└── Utils/                             
 ```
 </details>
