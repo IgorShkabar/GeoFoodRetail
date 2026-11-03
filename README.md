@@ -1,3 +1,4 @@
+<img width="1600" height="1154" alt="scheme" src="https://github.com/user-attachments/assets/de19ae51-d810-4d3c-a450-ac513a1c8e18" />
 # GeoFoodRetail
 is a system that computes distances, geolocation of retails; facilitates purchase payments, the dispensing of change, and the selection of an optimal food combination; shows functionality within a GIS environment: searching for retail locations on the USA map, the distances between them, and determining the distance to 
 the user's computer; shows the coverage and an increase in the number of nearby supermarkets that fall within the user's search area.
