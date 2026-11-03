@@ -206,7 +206,7 @@ namespace GeoFoodRetail.GIS
             PointF geoCoords = _searchedPinLocation.HasValue
                 ? WebMercatorToLatLon(_searchedPinLocation.Value)
                 : new PointF(0, 0);
-            // Безопасно получаем имя магазина по индексу
+            
             string storeName = (storeIdx >= 0 && storeIdx < StoreNameArr.Count)
                 ? StoreNameArr[storeIdx]
                 : $"{storeIdx + 1}";
