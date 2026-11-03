@@ -46,6 +46,7 @@ namespace GeoFoodRetail.GIS.UI
         protected Label _lblSelectedInfo;
         protected Label _lblPrice;
         protected Label _lblDistanceInfo;
+        protected Label _lblNoteInfo;
         protected TextBox _txtSearch;
         protected Button _btnSearch;
         protected Button _btnClearPin;

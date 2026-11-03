@@ -30,7 +30,7 @@ namespace GeoFoodRetail.GIS.UI
         {
             using (Font titleFont = new Font("Arial", 11, FontStyle.Bold))
             {
-                g.DrawString("GIS Map USA (EPSG:3857 + Nominatim Search)", titleFont, Brushes.Black, 20, 15);
+                g.DrawString("GIS Map USA (EPSG:3857 + Nominatim Search)", titleFont, Brushes.Black, 20, 10);
             }
         }
 

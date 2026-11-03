@@ -47,19 +47,19 @@ namespace GeoFoodRetail.GIS.UI
         private void InitUsaGraphicsPaths()
         {
             _usaRegionPaths[0] = CreatePolygon(new[] {
-                new PointF(25, 60), new PointF(150, 60), new PointF(160, 220),
-                new PointF(185, 300), new PointF(145, 385), new PointF(105, 335), new PointF(30, 210) });
+                new PointF(5, 35), new PointF(150, 35), new PointF(160, 220),
+                new PointF(185, 300), new PointF(145, 385), new PointF(105, 335), new PointF(10, 210) });
 
             _usaRegionPaths[1] = CreatePolygon(new[] {
-                new PointF(150, 60), new PointF(350, 60), new PointF(335, 225), new PointF(160, 220) });
+                new PointF(150, 35), new PointF(350, 35), new PointF(335, 225), new PointF(160, 220) });
 
             _usaRegionPaths[2] = CreatePolygon(new[] {
-                new PointF(160, 220), new PointF(335, 225), new PointF(360, 235), new PointF(460, 255),
-                new PointF(435, 320), new PointF(420, 420), new PointF(365, 375), new PointF(265, 355),
+                new PointF(160, 220), new PointF(335, 225), new PointF(360, 235), new PointF(580, 255),
+                new PointF(435, 320), new PointF(420, 445), new PointF(365, 375), new PointF(265, 355),
                 new PointF(230, 415), new PointF(185, 300) });
 
             _usaRegionPaths[3] = CreatePolygon(new[] {
-                new PointF(350, 60), new PointF(475, 75), new PointF(460, 255), new PointF(335, 225) });
+                new PointF(350, 35), new PointF(630, 70), new PointF(580, 255), new PointF(335, 225) });
         }
 
         private void InitUI()

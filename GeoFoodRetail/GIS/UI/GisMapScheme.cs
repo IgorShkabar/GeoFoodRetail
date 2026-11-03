@@ -71,6 +71,7 @@ namespace GeoFoodRetail.GIS.UI
                                   "Nearest Store: Store #" + (storeIdx + 1) + " (" + _regionNames[storeIdx] + ")\n" +
                                   "Distance: ~" + distanceKm.ToString("N1") + " km\n\n" +
                                   _lblDistanceInfo.Text;
+            _lblNoteInfo.Text = _lblNoteInfo.Text;
         }
 
         private void CenterMapOnPoint(PointF targetWorldPt)
@@ -121,6 +122,8 @@ namespace GeoFoodRetail.GIS.UI
                 matrix += "-> Store #" + (i + 1) + ": ~" + dist.ToString("N0") + " km\n";
             }
             _lblDistanceInfo.Text = matrix;
+
+            _lblNoteInfo.Text = $"GIS Map USA (in the Web Mercator projection + search via Nominatim) /n EPSG:3857 - is a digital code, standard in cartography & GIS systems, that designates the Wb Mercator.";
         }        
     }
 }
