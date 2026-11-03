@@ -19,16 +19,7 @@ namespace GeoFoodRetail.GIS.UI
         // Spatial Data Initialization 
 
         private void InitStoresSpatialData()
-        {
-            /* _storePixelPositions.Clear();
-            _storeNames.Clear();
-            for (int i = 0; i < _usaRegionGeoCenters.Length; i++)
-            {
-                PointF screenPt = GeometryCalc.LatLonToWebMercator(_usaRegionGeoCenters[i].X, _usaRegionGeoCenters[i].Y);
-                _storePixelPositions.Add(screenPt);
-                _storeNames.Add("Store #" + (i + 1));
-            }   */
-
+        {          
             _storePixelPositions.Clear();
             _storeNames.Clear();
             _storeNames.AddRange(new List<string> { "H Mart", "Walmart", "Heinz", "Five Guys" });
