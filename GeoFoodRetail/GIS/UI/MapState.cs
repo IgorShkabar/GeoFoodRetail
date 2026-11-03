@@ -34,11 +34,11 @@ namespace GeoFoodRetail.GIS.UI
             };
         protected readonly PointF[] _usaRegionGeoCenters = new PointF[]
         {
-            new PointF(37.7749f, -122.4194f),
-            new PointF(41.8781f, -87.6298f),
-            new PointF(29.7604f, -95.3698f),
-            new PointF(40.7128f, -74.0060f)
-        };
+            new PointF(30.9855f, -112.4194f),
+            new PointF(36.8781f, -87.6298f),
+            new PointF(6.7604f, -85.3698f),
+            new PointF(33.7128f, -54.0060f)
+        };  
         protected decimal[] _regionDeliveryPrices = { 500.00m, 350.00m, 400.00m, 600.00m };
         protected PointF? _searchedPinLocation = null;
         protected string _searchedAddressLabel = string.Empty;

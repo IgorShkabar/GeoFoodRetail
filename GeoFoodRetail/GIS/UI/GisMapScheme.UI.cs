@@ -68,7 +68,7 @@ namespace GeoFoodRetail.GIS.UI
 
             _lblSearchError = new Label
             {
-                Text = "⚠️ Введите адрес для поиска",
+                Text = "⚠️ Enter address to search ",
                 AutoSize = true,
                 Font = new Font("Arial", 8f, FontStyle.Bold),
                 ForeColor = Color.Red,
@@ -147,14 +147,15 @@ namespace GeoFoodRetail.GIS.UI
 
             _lblDistanceInfo = new Label {
                 Width = 280,
-                Height = 250,
+                Height = 80,
                 Font = new Font("Consolas", 8.5f, FontStyle.Regular),
                 ForeColor = Color.Black,
+                BackColor = Color.LightYellow,
                 Margin = new Padding(0)
             };
 
             _lblNoteInfo = new Label {                
-                Height = 550,
+                Height = 390,
                 Font = new Font("Consolas", 8.5f, FontStyle.Regular),
                 ForeColor = Color.Black,
                 Margin = new Padding(0)
@@ -227,10 +228,12 @@ namespace GeoFoodRetail.GIS.UI
 
         private void BuildInformationLabels(Panel rightPanel)
         {
+            var place = _lblDistanceInfo.Top + _lblDistanceInfo.Height + 20;
+
             _lblCashInfo = new Label { Left = 15, Top = 90, Width = 335, Height = 25, Font = new Font("Consolas", 10, FontStyle.Bold), ForeColor = Color.DarkBlue, Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right };
             _lblSelectedInfo = new Label { Text = "Please select a region on the map!", Left = 15, Top = 120, Width = 335, Height = 45, Font = new Font("Arial", 9.5f, FontStyle.Regular), ForeColor = Color.Red, Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right };
             _lblDistanceInfo = new Label { Left = 15, Top = 175, Width = 335, Height = 250, Font = new Font("Consolas", 8.5f, FontStyle.Regular), ForeColor = Color.Black, Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom };
-            _lblNoteInfo = new Label { Left = 15, Top = 575, Font = new Font("Consolas", 8.5f, FontStyle.Regular), ForeColor = Color.Black, Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom };
+            _lblNoteInfo = new Label { Left = 15, Top = place, Font = new Font("Consolas", 9f, FontStyle.Regular), ForeColor = Color.Blue, Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom };
         
             rightPanel.Controls.Add(_lblCashInfo);
             rightPanel.Controls.Add(_lblSelectedInfo);

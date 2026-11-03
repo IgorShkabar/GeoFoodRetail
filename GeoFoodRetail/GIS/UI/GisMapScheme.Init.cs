@@ -1,6 +1,7 @@
 ﻿/** 
  * Copyright (c) 2024 Igor Shkabar. All rights reserved.
  */
+using GeoFoodRetail.GIS.Domain.Models;
 using GeoFoodRetail.GIS.Math3D;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static GeoFoodRetail.GIS.DeliveryZoneForm;
 
 namespace GeoFoodRetail.GIS.UI
 {
@@ -18,13 +20,23 @@ namespace GeoFoodRetail.GIS.UI
 
         private void InitStoresSpatialData()
         {
-            _storePixelPositions.Clear();
+            /* _storePixelPositions.Clear();
             _storeNames.Clear();
             for (int i = 0; i < _usaRegionGeoCenters.Length; i++)
             {
                 PointF screenPt = GeometryCalc.LatLonToWebMercator(_usaRegionGeoCenters[i].X, _usaRegionGeoCenters[i].Y);
                 _storePixelPositions.Add(screenPt);
                 _storeNames.Add("Store #" + (i + 1));
+            }   */
+
+            _storePixelPositions.Clear();
+            _storeNames.Clear();
+            _storeNames.AddRange(new List<string> { "H Mart", "Walmart", "Heinz", "Five Guys" });
+            
+            for (int i = 0; i < _storeNames.Count; i++)
+            {
+                PointF screenPt = GeometryCalc.LatLonToWebMercator(_usaRegionGeoCenters[i].X, _usaRegionGeoCenters[i].Y);
+                _storePixelPositions.Add(screenPt);
             }
         }
 

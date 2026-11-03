@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Drawing;
 using System.Windows.Forms;
 using GeoFoodRetail.GIS.Math3D;
+using GeoFoodRetail.GIS.Domain.Models;
 
 namespace GeoFoodRetail.GIS
 {
@@ -159,16 +160,18 @@ namespace GeoFoodRetail.GIS
 
         private void UpdateDistanceMatrixInfo(int activeStoreIdx)
         {
-            string matrix = "--- Distance from Store #" + (activeStoreIdx + 1) + " ---\n";
+            string activeStoreName = StoreData.Store[activeStoreIdx].ToString();
+            ///string matrix = "Distance from Store #" + (activeStoreIdx + 1) + " ---\n";
+            string matrix = $"==== Distance from {activeStoreName} ===\n";
             PointF originGeo = _storeCoordArray[activeStoreIdx];
 
             for (int i = 0; i < _storeCoordArray.Length; i++)
             {
                 if (i == activeStoreIdx) continue;
                 double dist = GeometryCalc.CalculateHaversineDistance(originGeo, _storeCoordArray[i]);
-                matrix += "-> Store #" + (i + 1) + ": ~" + dist.ToString("N0") + " km\n";
+                string targetStoreName = StoreData.Store[activeStoreIdx].ToString();
+                matrix += $"-> {targetStoreName}: ~{dist:N0} km\n";                
             }
-            _lblDistanceInfo.Text = matrix;
         }
     }
 }

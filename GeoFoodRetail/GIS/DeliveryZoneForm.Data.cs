@@ -209,7 +209,7 @@ namespace GeoFoodRetail.GIS
             // Безопасно получаем имя магазина по индексу
             string storeName = (storeIdx >= 0 && storeIdx < StoreNameArr.Count)
                 ? StoreNameArr[storeIdx]
-                : $"Store #{storeIdx + 1}";
+                : $"{storeIdx + 1}";
 
             _lblDistanceInfo.ForeColor = Color.Black;
             _lblDistanceInfo.Text = "=== GEOCODING RESULT ===\n" +

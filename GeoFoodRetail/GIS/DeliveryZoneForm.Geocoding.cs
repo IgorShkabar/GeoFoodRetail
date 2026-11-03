@@ -120,7 +120,7 @@ namespace GeoFoodRetail.GIS
         private void ApplyFoundCoordinates(float lat, float lon, string labelText)
         {
             _searchedPinLocation = LatLonToWebMercator(lat, lon);
-            _searchedAddressLabel = labelText;
+            _searchedAddressLabel = string.Empty; // labelText;
 
             SelectNearestStoreToPin(new PointF(lat, lon));
             CenterMapOnPoint(_searchedPinLocation.Value);
@@ -168,7 +168,7 @@ namespace GeoFoodRetail.GIS
             _lblDistanceInfo.Text = "=== SEARCH RESULT ===\n" +
                                    "Address: " + _searchedAddressLabel + "\n" +
                                    "Coordinates: " + coordsText + "\n" +
-                                   "Nearest Store: Store #" + (storeIdx + 1) + " (" + StoreNameArr[storeIdx] + ")\n" +
+                                   "Nearest Store: " + StoreNameArr[storeIdx] + "\n" +
                                    "Distance: ~" + distanceKm.ToString("N1") + " km\n\n";
         }
 
@@ -207,7 +207,7 @@ namespace GeoFoodRetail.GIS
             {
                 string addr = doc.RootElement.TryGetProperty("display_name", out var name)
                     ? name.GetString()
-                    : "Адрес не определен";
+                    : "Address was not specified";
 
                 _searchedPinLocation = LatLonToWebMercator(geoPt.X, geoPt.Y);
                 _searchedAddressLabel = addr;

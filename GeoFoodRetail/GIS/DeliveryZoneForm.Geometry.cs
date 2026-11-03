@@ -31,7 +31,7 @@ namespace GeoFoodRetail.GIS
 
         // Math & GIS Transformations 
         
-        private PointF LatLonToWebMercator(float lat, float lon)
+        internal PointF LatLonToWebMercator(float lat, float lon)
         {
             float clientWidth = ClientSize.Width > 0 ? ClientSize.Width : 818f;
             float clientHeight = ClientSize.Height > 0 ? ClientSize.Height : 497f;

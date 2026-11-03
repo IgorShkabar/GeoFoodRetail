@@ -23,6 +23,7 @@ using GeoFoodRetail.GIS.Constants;
 using System.Text.Json;
 using GeoFoodRetail.GIS;
 using GeoFoodRetail.GIS.Math3D;
+using GeoFoodRetail.GIS.Domain.Models;
 
 namespace GeoFoodRetail.GIS.UI
 {
@@ -66,12 +67,15 @@ namespace GeoFoodRetail.GIS.UI
         private void UpdateUIWithPinDistance(int storeIdx, double distanceKm)
         {
             UpdateUI();
-            _lblDistanceInfo.Text = "=== SEARCH RESULT ===\n" +
-                                  "Address: " + _searchedAddressLabel + "\n" +
-                                  "Nearest Store: Store #" + (storeIdx + 1) + " (" + _regionNames[storeIdx] + ")\n" +
-                                  "Distance: ~" + distanceKm.ToString("N1") + " km\n\n" +
-                                  _lblDistanceInfo.Text;
-            _lblNoteInfo.Text = _lblNoteInfo.Text;
+            storeIdx = 4;
+            string currentStoreName = StoreData.Store[storeIdx].ToString();
+            string regionName = (storeIdx >= 0 && storeIdx < _regionNames.Length) ? _regionNames[storeIdx] : "";
+
+            string newInfo = $"Address: {_searchedAddressLabel}\n" +
+                             $"Nearest Store: {currentStoreName} ({regionName})\n" +
+                             $"Distance: ~{distanceKm:N1} km\n\n";
+
+            _lblDistanceInfo.Text = newInfo + _lblDistanceInfo.Text;
         }
 
         private void CenterMapOnPoint(PointF targetWorldPt)
@@ -112,18 +116,28 @@ namespace GeoFoodRetail.GIS.UI
 
         private void UpdateDistanceMatrixInfo(int activeStoreIdx)
         {
-            string matrix = "--- Distance from Store #" + (activeStoreIdx + 1) + " ---\n";
-            PointF originGeo = _usaRegionGeoCenters[activeStoreIdx];
-
+            string activeStoreName = _storeNames[activeStoreIdx];
+            string matrix = $"==== Distance from {activeStoreName} ===\n";
+            PointF originGeo = _usaRegionGeoCenters[activeStoreIdx];         
+            
             for (int i = 0; i < _usaRegionGeoCenters.Length; i++)
             {
                 if (i == activeStoreIdx) continue;
                 double dist = GeometryCalc.CalculateHaversineDistance(originGeo, _usaRegionGeoCenters[i]);
-                matrix += "-> Store #" + (i + 1) + ": ~" + dist.ToString("N0") + " km\n";
+                string targetStoreName = _storeNames[i];
+                matrix += $"-> {targetStoreName}: ~{dist:N0} km\n";
             }
             _lblDistanceInfo.Text = matrix;
 
-            _lblNoteInfo.Text = $"GIS Map USA (in the Web Mercator projection + search via Nominatim) /n EPSG:3857 - is a digital code, standard in cartography & GIS systems, that designates the Wb Mercator.";
+            _lblNoteInfo.Text = $"GIS Map USA (in the Web Mercator projection + search via Nominatim).{Environment.NewLine}{Environment.NewLine}EPSG:3857 - is a digital code, standard in cartography & GIS systems, that designates the Wb Mercator." +
+                $"{Environment.NewLine}{Environment.NewLine}" +
+                $"GIS Map USA - GIS Map in Geo Information System." +
+                $"EPSG is the abbreviation of European Petroleum Survey Group." +                
+                $"Today their name is used as the name of the Unified World Register of Coordinate Systems." +
+                $"{Environment.NewLine}{Environment.NewLine}" +
+                $"3857 is ID in a specific projection in this registry." +
+                $"{Environment.NewLine}" +
+                $"Nominatim Search - means: the search bar on this map is powered by Nominatim engine. This is a tool that searches for addresses and geographic features based on a text query, using OpenStreetMap data.";
         }        
     }
 }
