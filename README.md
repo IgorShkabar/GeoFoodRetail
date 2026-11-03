@@ -1,15 +1,13 @@
-<img width="1600" height="1154" alt="scheme" src="https://github.com/user-attachments/assets/de19ae51-d810-4d3c-a450-ac513a1c8e18" />
 # GeoFoodRetail
 is a system that computes distances, geolocation of retails; facilitates purchase payments, the dispensing of change, and the selection of an optimal food combination; shows functionality within a GIS environment: searching for retail locations on the USA map, the distances between them, and determining the distance to 
 the user's computer; shows the coverage and an increase in the number of nearby supermarkets that fall within the user's search area.
 
 ## Screenshots:
-<img width="50%" alt="geocoding_api" src="https://github.com/user-attachments/assets/14e2ddec-b2ef-46ee-96ec-ecf46b75ae15" />
-<img width="50%" alt="table_retail_chains" src="https://github.com/user-attachments/assets/40aae981-c1f6-4c6b-88f5-fa7893065c5e" />
-<img width="50%" alt="search_retails" src="https://github.com/user-attachments/assets/b75534a2-f038-40c4-8922-971254dbf1d1" />
-<img width="50%" alt="scheme_gis_map" src="https://github.com/user-attachments/assets/cc587342-6248-4482-8a39-ae25d7f7b92b" />
-<img width="50%" alt="retails" src="https://github.com/user-attachments/assets/4c9b39e3-199c-4293-997e-eb8c78e4511e" />
-
+<img width="50%" alt="table_retail_chains" src="https://github.com/user-attachments/assets/b6cb8e1f-3bd7-4861-99bb-d14491c7f8e1" />
+<img width="50%" alt="search_retails" src="https://github.com/user-attachments/assets/a7c25a10-f56f-42ce-9a50-8996f127a996" />
+<img width="50%" alt="scheme" src="https://github.com/user-attachments/assets/6e372d76-dba9-4b94-b1e8-b0aa57fdd00e" />
+<img width="50%" alt="retails" src="https://github.com/user-attachments/assets/d9fa6207-5ae1-4687-baf2-47288fe7336f" />
+<img width="50%" alt="geocoding_api" src="https://github.com/user-attachments/assets/397333f9-9fe6-47fd-85d3-3ec8a2c69bc7" />
 
 # What the application does: 
 A desktop GIS system for searching retail locations on a map of the United States, performing calculations, and displaying the results within a WinForms interface. 
