@@ -129,15 +129,20 @@ namespace GeoFoodRetail.GIS.UI
             }
             _lblDistanceInfo.Text = matrix;
 
+            LabelNote();
+        }
+        
+        private void LabelNote()
+        {
             _lblNoteInfo.Text = $"GIS Map USA (in the Web Mercator projection + search via Nominatim).{Environment.NewLine}{Environment.NewLine}EPSG:3857 - is a digital code, standard in cartography & GIS systems, that designates the Wb Mercator." +
                 $"{Environment.NewLine}{Environment.NewLine}" +
                 $"GIS Map USA - GIS Map in Geo Information System." +
-                $"EPSG is the abbreviation of European Petroleum Survey Group." +                
+                $"EPSG is the abbreviation of European Petroleum Survey Group." +
                 $"Today their name is used as the name of the Unified World Register of Coordinate Systems." +
                 $"{Environment.NewLine}{Environment.NewLine}" +
                 $"3857 is ID in a specific projection in this registry." +
                 $"{Environment.NewLine}" +
                 $"Nominatim Search - means: the search bar on this map is powered by Nominatim engine. This is a tool that searches for addresses and geographic features based on a text query, using OpenStreetMap data.";
-        }        
+        }    
     }
 }
