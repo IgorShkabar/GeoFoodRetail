@@ -160,8 +160,7 @@ namespace GeoFoodRetail.GIS
 
         private void UpdateDistanceMatrixInfo(int activeStoreIdx)
         {
-            string activeStoreName = StoreData.Store[activeStoreIdx].ToString();
-            ///string matrix = "Distance from Store #" + (activeStoreIdx + 1) + " ---\n";
+            string activeStoreName = StoreData.Store[activeStoreIdx].ToString();            
             string matrix = $"==== Distance from {activeStoreName} ===\n";
             PointF originGeo = _storeCoordArray[activeStoreIdx];
 
