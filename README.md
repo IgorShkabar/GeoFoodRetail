@@ -88,14 +88,14 @@ I used spatial indexes (GIST) in PostGIS, which sped up geo-queries. Moved rende
 To optimize the rendering of 50,000+ points on the map, spatial searching has been moved to a stage preceding the actual drawing process; this ensures that the graphics engine only processes points that fall within the current screen area (bounding box/viewport). An R-Tree has been implemented for this purpose. For the efficient filtering of 50,000 points within the current screen view, the implementation—utilizing SimdAABB and ISpatialIndex<T>—includes index management, rapid insertion, updates, and a high-performance, non-allocating search for elements that intersect the screen.
 Data is packed into fixed-size buffers. There are no heap allocations per frame/request, which means no freezes (GC pauses) during rendering or map processing.
 ## Key functionality: a list of what the program can do:
-*Object lookup using a Quadtree index with O(log N) complexity.
+* Object lookup using a Quadtree index with O(log N) complexity.
 GIS functionality: A range of implemented geospatial operations (e.g., an address geocoding pipeline).
-*Implementation of the Web Mercator mathematical projection, mapping standard geographic coordinates (Lat/Lon) to the OpenStreetMap tile grid.
-*Implementation of multithreading and asynchronous tile loading from the map server, ensuring the GUI thread remains responsive.
-*Two-tier caching (Memory + Disk): Previously loaded tiles are stored in a disk-based cache (`TileCache/`), reducing data usage and ensuring smooth performance (60 FPS).
-*Switching to an SoA (Structure of Arrays) layout allows for optimal utilization of the processor's L1/L2 caches during batch testing. The coordinates of four R-Tree bounding boxes are loaded simultaneously into a single SIMD register, enabling intersection checks against the query AABB to be performed with a single processor instruction.
-*Windows' built-in geolocation services are used to determine coordinates based on an IP address, while the haversine formula—which accounts for the Earth's spherical shape—is implemented to precisely calculate the distance between points on the Earth's surface.
-*Full GIS functionality has been implemented to display the precise locations of stores in the U.S. using a combination of GMap.NET and OpenStreetMap. The component is simply placed onto a form, the OpenStreetMap provider is specified, and markers (GMapMarker) are added based on exact coordinates (latitude/longitude).
+* Implementation of the Web Mercator mathematical projection, mapping standard geographic coordinates (Lat/Lon) to the OpenStreetMap tile grid.
+* Implementation of multithreading and asynchronous tile loading from the map server, ensuring the GUI thread remains responsive.
+* Two-tier caching (Memory + Disk): Previously loaded tiles are stored in a disk-based cache (`TileCache/`), reducing data usage and ensuring smooth performance (60 FPS).
+* Switching to an SoA (Structure of Arrays) layout allows for optimal utilization of the processor's L1/L2 caches during batch testing. The coordinates of four R-Tree bounding boxes are loaded simultaneously into a single SIMD register, enabling intersection checks against the query AABB to be performed with a single processor instruction.
+* Windows' built-in geolocation services are used to determine coordinates based on an IP address, while the haversine formula—which accounts for the Earth's spherical shape—is implemented to precisely calculate the distance between points on the Earth's surface.
+* Full GIS functionality has been implemented to display the precise locations of stores in the U.S. using a combination of GMap.NET and OpenStreetMap. The component is simply placed onto a form, the OpenStreetMap provider is specified, and markers (GMapMarker) are added based on exact coordinates (latitude/longitude).
 ## Technology Stack:
 C#, WinForms, .NET, Oracle Spatial, nUnit, GMap.NET, json, SQL, NuGet packages. 
 ## Launch instructions:
