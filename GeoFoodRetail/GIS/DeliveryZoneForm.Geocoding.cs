@@ -11,6 +11,7 @@ using System.Net.Http;
 using System.Text.Json;
 using System.Windows.Forms;
 using GeoFoodRetail.GIS.Math3D;
+using GeoFoodRetail.GIS.Domain.Models;
 
 namespace GeoFoodRetail.GIS
 {
@@ -106,7 +107,7 @@ namespace GeoFoodRetail.GIS
             else if (search_lower.Contains("tx") || search_lower.Contains("houston"))
                 fall_back_geo = new PointF(29.7604f, -95.3698f);
 
-            ApplyFoundCoordinates(fall_back_geo.X, fall_back_geo.Y, address + " (Офлайн расчёт)");
+            ApplyFoundCoordinates(fall_back_geo.X, fall_back_geo.Y, address + " (Offline calculation)");
         }
 
         // overloading
@@ -160,16 +161,38 @@ namespace GeoFoodRetail.GIS
 
         //Formatted display of coordinates in the user interface (UpdateUIWithCoordinates)
         // Replacing the logic for updating the _lblDistanceInfo text label. Now, I am displaying the coordinates directly below the address:
-        private void UpdateUIWithCoordinates(int storeIdx, double distanceKm, float lat, float lon)
+        private void UpdateUIWithCoordinates(int storeIndex, double distanceKm, float lat, float lon)
         {
             UpdateUI();
             string coordsText = $"Lat: {lat:F6}, Lon: {lon:F6}";
 
-            _lblDistanceInfo.Text = "=== SEARCH RESULT ===\n" +
-                                   "Address: " + _searchedAddressLabel + "\n" +
-                                   "Coordinates: " + coordsText + "\n" +
-                                   "Nearest Store: " + StoreNameArr[storeIdx] + "\n" +
-                                   "Distance: ~" + distanceKm.ToString("N1") + " km\n\n";
+            // 1. The reference point is the store selected by the user
+            PointF currStoreCoord = _storeCoordArray[storeIndex];
+            double minDistance = double.MaxValue;
+            int nearestStoreIndex = -1;
+
+            // 2. Among ALL the other stores, I look for the one that is closest
+            for (int i = 0; i < StoreData.Store.Count; i++)
+            {
+                if (i == storeIndex) continue; // Skip the selected store itself
+                double dist = GeometryCalc.CalculateHaversineDistance(currStoreCoord, _storeCoordArray[i]);
+
+                if (dist < minDistance)
+                {
+                    minDistance = dist;
+                    nearestStoreIndex = i;
+                }
+            }
+            // Check if I`ve found at least 1 store nearby
+            if (nearestStoreIndex != -1)
+            {
+                _lblDistanceInfo.Text = "=== SEARCH RESULT ===\n"
+                    + "Address: " + _searchedAddressLabel + "\n"
+                    + "Coordinates: " + coordsText + "\n"
+                    + "Nearest Store: " + StoreNameArr[nearestStoreIndex] + "\n"
+                    + "Distance: ~" + minDistance.ToString("N1") + " km\n\n";
+            }
+            else  { _lblDistanceInfo.Text = "No other stores found.";   }
         }
 
         // Adding (Reverse Geocoding)        

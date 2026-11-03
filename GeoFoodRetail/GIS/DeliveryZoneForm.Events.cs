@@ -160,17 +160,19 @@ namespace GeoFoodRetail.GIS
 
         private void UpdateDistanceMatrixInfo(int activeStoreIdx)
         {
-            string activeStoreName = StoreData.Store[activeStoreIdx].ToString();            
-            string matrix = $"==== Distance from {activeStoreName} ===\n";
+            string activeStoreName = StoreData.Store[activeStoreIdx].Name;            
+            string matrix = $"Distance from {activeStoreName}\n";
             PointF originGeo = _storeCoordArray[activeStoreIdx];
 
-            for (int i = 0; i < _storeCoordArray.Length; i++)
+            for (int i = 0; i < StoreData.Store.Count; i++)
             {
                 if (i == activeStoreIdx) continue;
-                double dist = GeometryCalc.CalculateHaversineDistance(originGeo, _storeCoordArray[i]);
-                string targetStoreName = StoreData.Store[activeStoreIdx].ToString();
+
+                double dist = GeometryCalc.CalculateHaversineDistance(originGeo, _storeCoordArray[i]);                
+                var targetStoreName = StoreData.Store[i].Name; 
                 matrix += $"-> {targetStoreName}: ~{dist:N0} km\n";                
             }
+            _lblDistanceInfo.Text = matrix;
         }
     }
 }
